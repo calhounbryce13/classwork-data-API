@@ -2,35 +2,37 @@
 # Each request should return all events/classes/taskss for the scope (day/week/month) for the user (user_id)
 
 ### Daily view request
-GET http://localhost:3000/view
+POST http://127.0.0.1:3000/user-view
 Content-Type: application/json
 
 {
   "type": "daily",
-  "date": "2025-05-25",
-  "user_id": "683060a6c90031cd22f18886"
+  "date": "2025-05-06",
+  "user_id": "683b76250904b4fd6802f4d9"
 }
 
 ###
 
 ### Weekly view request
-GET http://localhost:3000/view
+GET http://localhost:3000/user-view
 Content-Type: application/json
 
 {
   "type": "weekly",
   "date": "2025-05-25",
-  "user_id": "683060a6c90031cd22f18886"
+  "user_id": "683b76250904b4fd6802f4d9",
+  "week": "1"
+
 }
 
 ###
 
 ### Monthly view request
-GET http://localhost:3000/view
+GET http://localhost:3000/user-view
 Content-Type: application/json
 
 {
   "type": "monthly",
   "date": "2025-05-25",
-  "user_id": "683060a6c90031cd22f18886"
+  "user_id": "683b76250904b4fd6802f4d9"
 }
