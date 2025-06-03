@@ -16,12 +16,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/calhounbryce13/microservice_A.git"
+    "url": "git+https://github.com/calhounbryce13/coursework-microservice.git"
   },
   "author": "Bryce Calhoun",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/calhounbryce13/microservice_A/issues"
+    "url": "https://github.com/calhounbryce13/coursework-microservice/issues"
   },
-  "homepage": "https://github.com/calhounbryce13/microservice_A#readme"
+  "homepage": "https://github.com/calhounbryce13/coursework-microservice#readme"
 }
