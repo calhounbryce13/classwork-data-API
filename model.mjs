@@ -3,8 +3,7 @@ import mongoose from 'mongoose';
 
 
 mongoose.connect(
-    //process.env.MONGODB_CONNECTION_STRING,
-    'mongodb+srv://calhounbryce13:T4113ngr10010137@mycluster1.iv9rj.mongodb.net/school_stuff?retryWrites=true&w=majority&appName=MyCluster1',
+    process.env.MONGODB_CONNECTION_STRING,
     { useNewUrlParser: true }
 );
 
