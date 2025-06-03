@@ -54,42 +54,6 @@ const userSchema = new mongoose.Schema({
 const userModel = mongoose.model('user', userSchema, 'microservice_A');
 
 
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-const testClasses = [
-    {
-        title: "test class",
-        location: "test class location",
-        room: "room number",
-        class_date: "2025-05-06",
-        start_time: "22:12:00",
-        end_time: "22:12:00"
-    }
-]
-
-const testEvents = [
-    {
-        title: "event 1",
-        location: "location task",
-        date: "2025-05-06",
-        start_time: "22:12:00",
-        end_time: "22:12:00"
-    }
-]
-
-const testTasks = [
-    {
-        title: "task",
-        description: "descrition",
-        due_date: "2025-05-06",
-        due_time: "22:12:00"
-    }
-]
-
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 const extract_month = function(dateString){
