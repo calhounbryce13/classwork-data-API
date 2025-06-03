@@ -6,6 +6,13 @@ A backend web service made with Node.js, Express, and the mongoose API to
 query for user data from a MongoDB database of user classes, events, and tasks.
 
 
+GETTING STARTED:
+
+1.download the current issue into a directory 
+2.add your mongoDB connection string to the .env file
+3.run 'npm install' and then 'npm start' in the terminal
+
+
     HOW TO REQUEST DATA FROM API:
 
         DAILY COURSEWORK:
@@ -112,3 +119,7 @@ query for user data from a MongoDB database of user classes, events, and tasks.
                 200 status code, data is a json object{} of 3 lists; 1.classes[], 2.events[], and 3.tasks[]
             FAIL:
                 400 status code, "Bad Request" message
+
+
+    UML DIAGRAM:
+    ![alt text](image.png)
