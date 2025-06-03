@@ -23,7 +23,6 @@ app.post('/user-view', async(req, res)=>{
                 if(type === 'daily'){
                     const data = await User.get_daily_data(user_id, date);
                     res.status(200).json(data);
-                    console.log("wnefiown");
                     return;
                 }
                 else if(type == 'weekly'){
