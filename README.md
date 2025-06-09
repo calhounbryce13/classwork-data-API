@@ -15,7 +15,7 @@ query for user data from a MongoDB database of user classes, events, and tasks.
 
     ### HOW TO REQUEST DATA FROM API:
 
-        #### DAILY COURSEWORK:
+   #### DAILY COURSEWORK:
             endpoint: POST '/user-view'
             headers: "Content-Type": "application/json"
             body: type(str), date(str), user id(str)
@@ -30,7 +30,7 @@ query for user data from a MongoDB database of user classes, events, and tasks.
                 "user_id": "683b76250904b4fd6802f4d9"
                 }
 
-        #### WEEKLY COURSEWORK:
+   #### WEEKLY COURSEWORK:
             endpoint: POST '/user-view'
             headers: "Content-Type": "application/json"
             body: type(str), date(str), user id(str)
@@ -45,7 +45,7 @@ query for user data from a MongoDB database of user classes, events, and tasks.
                 "user_id": "683b76250904b4fd6802f4d9"
                 }
 
-        #### MONTHLY COURSEWORK:
+   #### MONTHLY COURSEWORK:
             endpoint: POST '/user-view'
             headers: "Content-Type": "application/json"
             body: type(str), date(str), user id(str)
@@ -64,7 +64,7 @@ query for user data from a MongoDB database of user classes, events, and tasks.
 
     ### HOW TO RECIEVE DATA FROM API:
 
-        #### DAILY COURSEWORK:
+   #### DAILY COURSEWORK:
 
             SUCCESS:
                 200 status code, data is a json object{} of 3 lists; 1.classes[], 2.events[], and 3.tasks[]
@@ -106,14 +106,14 @@ query for user data from a MongoDB database of user classes, events, and tasks.
             ]
         }
 
-        #### WEEKLY COURSEWORK:
+   #### WEEKLY COURSEWORK:
 
             SUCCESS:
                 200 status code, data is a json object{} of 3 lists; 1.classes[], 2.events[], and 3.tasks[]
             FAIL:
                 400 status code, "Bad Request" message
 
-        #### MONTHLY COURSEWORK:
+   #### MONTHLY COURSEWORK:
 
             SUCCESS:
                 200 status code, data is a json object{} of 3 lists; 1.classes[], 2.events[], and 3.tasks[]
