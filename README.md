@@ -43,7 +43,7 @@ query for user data from a MongoDB database of user classes, events, and tasks.
                 "type": "weekly",
                 "date": "2025-05-06",
                 "user_id": "683b76250904b4fd6802f4d9",
-"week": 1
+                "week": 1
                 }
 
    #### MONTHLY COURSEWORK:
