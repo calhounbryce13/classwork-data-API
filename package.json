@@ -16,12 +16,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/calhounbryce13/coursework-microservice.git"
+    "url": "git+https://github.com/calhounbryce13/classwork-data-API.git"
   },
   "author": "Bryce Calhoun",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/calhounbryce13/coursework-microservice/issues"
+    "url": "https://github.com/calhounbryce13/classwork-data-API/issues"
   },
-  "homepage": "https://github.com/calhounbryce13/coursework-microservice#readme"
+  "homepage": "https://github.com/calhounbryce13/classwork-data-API#readme"
 }
