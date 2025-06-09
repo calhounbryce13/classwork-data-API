@@ -1,6 +1,6 @@
 
 
-# RETRIEVE USER COURSE DATA MICROSERVICE:
+# MongoUserAPI MICROSERVICE:
 
 A backend web service made with Node.js, Express, and the mongoose API to 
 query for user data from a MongoDB database of user classes, events, and tasks.
