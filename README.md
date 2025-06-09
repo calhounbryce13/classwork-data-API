@@ -8,7 +8,7 @@ query for user data from a MongoDB database of user classes, events, and tasks.
 
 ## GETTING STARTED:
 
-1. download the current issue into a directory 
+1. download the current.zip into a directory 
 2. add your mongoDB connection string to the .env file
 3. run 'npm install' and then 'npm start' in the terminal
 
