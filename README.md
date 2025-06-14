@@ -4,6 +4,7 @@
 
 A backend web service made with Node.js, Express, and the mongoose API to 
 query for user data from a MongoDB database of user classes, events, and tasks.
+Made this for a teammate's main program on a group project.
 
 
 ## GETTING STARTED:
