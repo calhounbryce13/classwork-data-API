@@ -4,7 +4,9 @@
 
 A backend web service made with Node.js, Express, and the mongoose API to 
 query for user data from a MongoDB database of user classes, events, and tasks.
-Made this for a teammate's main program on a group project.
+
+Collaborated with a teammate using Agile and Scrum methodologies where I also wrote 
+and refined user stories to capture feature requirements and define clear acceptance criteria
 
 
 ## GETTING STARTED:
