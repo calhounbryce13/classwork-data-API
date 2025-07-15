@@ -104,22 +104,27 @@ const get_daily_data = async(id, date)=>{
             tasks: []
         };
 
-        for(let i = 0; i < (myUser.classes).length; i++){
-            if(myUser.classes[i].class_date == date){
-                (returnObject.classes).push(myUser.classes[i]);
+        let i = 0;
+        while(myUser.classes[i] || myUser.events[i] || myUser.tasks[i]){
+            if(myUser.classes[i]){
+                const givenDate = myUser.classes[i].class_date;
+                if(givenDate == date){
+                    returnObject.classes.push(myUser.classes[i]);
+                }
             }
-        }
-
-        for(let i = 0; i < (myUser.events).length; i++){
-            if(myUser.events[i].date == date){
-                (returnObject.events).push(myUser.events[i]);
+            if(myUser.events[i]){
+                const givenDate = myUser.events[i].date;
+                if(givenDate == date){
+                    returnObject.events.push(myUser.events[i]);
+                }
             }
-        }
-
-        for(let i = 0; i < (myUser.tasks).length; i++){
-            if(myUser.tasks[i].due_date == date){
-                (returnObject.tasks).push(myUser.tasks[i]);
+            if(myUser.tasks[i]){
+                const givenDate = myUser.tasks[i].due_date;
+                if(givenDate == date){
+                    returnObject.tasks.push(myUser.tasks[i]);
+                }
             }
+            i++;
         }
         return returnObject;
     }
@@ -139,24 +144,28 @@ const get_monthly_data = async(id, date)=>{
             events: [],
             tasks: []
         };
-        for(let i = 0; i < (myUser.classes).length; i++){
-            const givenDate = myUser.classes[i].class_date;
-            if(extract_month(givenDate) == extract_month(date)){
-                returnObject.classes.push(myUser.classes[i]);
+
+        let i = 0;
+        while(myUser.classes[i] || myUser.events[i] || myUser.tasks[i]){
+            if(myUser.classes[i]){
+                const givenDate = myUser.classes[i].class_date;
+                if(extract_month(givenDate) == extract_month(date)){
+                    returnObject.classes.push(myUser.classes[i]);
+                }
             }
-        }
-        for(let i = 0; i < (myUser.events).length; i++){
-            const givenDate = myUser.events[i].date;
-            if(extract_month(givenDate) == extract_month(date)){
-                returnObject.events.push(myUser.events[i]);
+            if(myUser.events[i]){
+                const givenDate = myUser.events[i].date;
+                if(extract_month(givenDate) == extract_month(date)){
+                    returnObject.events.push(myUser.events[i]);
+                }
             }
-            
-        }
-        for(let i = 0; i < (myUser.tasks).length; i++){
-            const givenDate = myUser.tasks[i].due_date;
-            if(extract_month(givenDate) == extract_month(date)){
-                returnObject.tasks.push(myUser.tasks[i]);
+            if(myUser.tasks[i]){
+                const givenDate = myUser.tasks[i].due_date;
+                if(extract_month(givenDate) == extract_month(date)){
+                    returnObject.tasks.push(myUser.tasks[i]);
+                }
             }
+            i++;
         }
         return returnObject;
     }
@@ -176,24 +185,28 @@ const get_weekly_data = async(id, date, week)=>{
             events: [],
             tasks: []
         };
-        for(let i = 0; i < (myUser.classes).length; i++){
-            const givenDate = myUser.classes[i].class_date;
-            if((extract_month(givenDate) == extract_month(date)) && (week == myUser.classes[i].week)){
-                returnObject.classes.push(myUser.classes[i]);
+
+        let i = 0;
+        while(myUser.classes[i] || myUser.events[i] || myUser.tasks[i]){
+            if(myUser.classes[i]){
+                const givenDate = myUser.classes[i].class_date;
+                if(extract_month(givenDate) == extract_month(date) && (week == myUser.classes[i].week)){
+                    returnObject.classes.push(myUser.classes[i]);
+                }
             }
-        }
-        for(let i = 0; i < (myUser.events).length; i++){
-            const givenDate = myUser.events[i].date;
-            if((extract_month(givenDate) == extract_month(date)) && (week == myUser.events[i].week)){
-                returnObject.events.push(myUser.events[i]);
+            if(myUser.events[i]){
+                const givenDate = myUser.events[i].date;
+                if(extract_month(givenDate) == extract_month(date) && (week == myUser.classes[i].week)){
+                    returnObject.events.push(myUser.events[i]);
+                }
             }
-            
-        }
-        for(let i = 0; i < (myUser.tasks).length; i++){
-            const givenDate = myUser.tasks[i].due_date;
-            if((extract_month(givenDate) == extract_month(date)) && (week == myUser.tasks[i].week)){
-                returnObject.tasks.push(myUser.tasks[i]);
+            if(myUser.tasks[i]){
+                const givenDate = myUser.tasks[i].due_date;
+                if(extract_month(givenDate) == extract_month(date) && (week == myUser.classes[i].week)){
+                    returnObject.tasks.push(myUser.tasks[i]);
+                }
             }
+            i++;
         }
         return returnObject;
     }

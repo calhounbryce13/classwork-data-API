@@ -1,5 +1,5 @@
 /*
-Description: Microservice A for Xaviver's frontend main program. Endpoint to return 
+Description: Microservice A server file for Xaviver's frontend main program. Endpoint to return 
             user data from a mongoDB database.
 Author: Bryce Calhoun
 */
