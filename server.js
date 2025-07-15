@@ -7,15 +7,21 @@ Author: Bryce Calhoun
 
 import express from 'express';
 import User from './model.mjs';
-const app = express();
-const PORT = 3000;
 
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 
 app.post('/user-view', async(req, res)=>{
+    /* 
+    DESCRIPTION: A route handler defined to respond with relevant user data
+                based on the date range specification.
+    REQUEST: date range specifier(string), date (string), user id (string), OPTIONAL week of month (number)  
+    RESPONSE: relevant classes and coursework for the student (JSON array of objects)
+    */
     const { type, date, user_id } = req.body;
     if(type && date && user_id){
         if(type == 'weekly' || type == 'daily' || type == 'monthly'){

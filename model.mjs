@@ -57,6 +57,11 @@ const userModel = mongoose.model('user', userSchema, 'microservice_A');
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 const extract_month = function(dateString){
+        /* 
+    DESCRIPTION:
+    INPUT(S):
+    OUTPUT(S):
+    */
     let month = '';
     let isMonth = false;
     for(let i = 0; i < dateString.length; i++){
@@ -79,19 +84,13 @@ const extract_month = function(dateString){
 }
 
 
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-const create_new_user = async(email, password, created_at, classes, events, tasks)=>{
-    const newUser = new userModel({email: email, password:password, created_at: created_at, classes: classes, events: events, tasks: tasks});
-
-    return await newUser.save();
-}
-
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 const get_daily_data = async(id, date)=>{
+    /* 
+    DESCRIPTION:
+    INPUT(S):
+    OUTPUT(S):
+    */
     const myUser = await userModel.findById(id);
     if(myUser){
         const returnObject = {
@@ -123,6 +122,11 @@ const get_daily_data = async(id, date)=>{
 }
 
 const get_monthly_data = async(id, date)=>{
+        /* 
+    DESCRIPTION:
+    INPUT(S):
+    OUTPUT(S):
+    */
     const myUser = await userModel.findById(id);
     if(myUser){
         const returnObject = {
@@ -155,6 +159,11 @@ const get_monthly_data = async(id, date)=>{
 }
 
 const get_weekly_data = async(id, date, week)=>{
+        /* 
+    DESCRIPTION:
+    INPUT(S):
+    OUTPUT(S):
+    */
     const myUser = await userModel.findById(id);
     if(myUser){
         const returnObject = {
