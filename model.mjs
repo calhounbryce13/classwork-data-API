@@ -1,7 +1,13 @@
+/*
+Description: Microservice A model file for Xaviver's frontend main program. Endpoint to return 
+            user data from a mongoDB database.
+Author: Bryce Calhoun
+*/
 
+// imported tools
 import mongoose from 'mongoose';
 
-
+// configuring connection to mongoDB database
 mongoose.connect(
     process.env.MONGODB_CONNECTION_STRING,
     { useNewUrlParser: true }
@@ -9,6 +15,7 @@ mongoose.connect(
 
 const db = mongoose.connection;
 
+// connecting to mongoDB database
 db.once("open", ()=>{
     console.log("\nconnected to mongodb database!");
 });
@@ -57,10 +64,11 @@ const userModel = mongoose.model('user', userSchema, 'microservice_A');
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 const extract_month = function(dateString){
-        /* 
-    DESCRIPTION:
-    INPUT(S):
-    OUTPUT(S):
+    /* 
+    DESCRIPTION: Function to take a string representing a given date in format 
+                DD-MM-YY or DD-MM-YYYY. Month must be in the middle.
+    INPUT(S): Date (string)
+    OUTPUT(S): Month (string)
     */
     let month = '';
     let isMonth = false;
@@ -76,11 +84,8 @@ const extract_month = function(dateString){
             else{
                 month += dateString[i];
             }
-            
         }
-        
     }
-
 }
 
 
@@ -159,7 +164,7 @@ const get_monthly_data = async(id, date)=>{
 }
 
 const get_weekly_data = async(id, date, week)=>{
-        /* 
+    /* 
     DESCRIPTION:
     INPUT(S):
     OUTPUT(S):
@@ -196,12 +201,7 @@ const get_weekly_data = async(id, date, week)=>{
 }
 
 
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 export default { get_daily_data, get_monthly_data, get_weekly_data }
-
-
-
 
