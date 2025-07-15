@@ -73,7 +73,7 @@ and refined user stories to capture feature requirements and define clear accept
             SUCCESS:
                 200 status code, data is a json object{} of 3 lists; 1.classes[], 2.events[], and 3.tasks[]
             FAIL:
-                400 status code, "Bad Request" message
+                400 status code, "Invalid Request" message
 
             example:
         {
@@ -115,14 +115,14 @@ and refined user stories to capture feature requirements and define clear accept
             SUCCESS:
                 200 status code, data is a json object{} of 3 lists; 1.classes[], 2.events[], and 3.tasks[]
             FAIL:
-                400 status code, "Bad Request" message
+                400 status code, "Invalid Request" message
 
    #### MONTHLY COURSEWORK:
 
             SUCCESS:
                 200 status code, data is a json object{} of 3 lists; 1.classes[], 2.events[], and 3.tasks[]
             FAIL:
-                400 status code, "Bad Request" message
+                400 status code, "Invalid Request" message
 
 
     UML DIAGRAM:
