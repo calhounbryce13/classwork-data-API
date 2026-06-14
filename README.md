@@ -1,6 +1,7 @@
 
 
 # Class Schedule API Microservice:
+#### (THIS PROGRAM/APP WAS NOT MADE WITH ANY CODE THAT WAS GENERATED FROM A LARGE LANGUAGE MODEL, EX. CHATGPT, COPILOT).
 
 A backend web service made with Node.js, Express, and the mongoose API to 
 query for user data from a MongoDB database of user classes, events, and tasks.
