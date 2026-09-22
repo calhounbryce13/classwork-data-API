@@ -96,39 +96,48 @@ const get_daily_data = async(id, date)=>{
     INPUT(S):
     OUTPUT(S):
     */
-    const myUser = await userModel.findById(id);
-    if(myUser){
-        const returnObject = {
-            classes: [],
-            events: [],
-            tasks: []
-        };
 
-        let i = 0;
-        while(myUser.classes[i] || myUser.events[i] || myUser.tasks[i]){
-            if(myUser.classes[i]){
-                const givenDate = myUser.classes[i].class_date;
-                if(givenDate == date){
-                    returnObject.classes.push(myUser.classes[i]);
+
+
+    
+    try{
+            const myUser = await userModel.findById(id);
+                if(myUser){
+                    const returnObject = {
+                        classes: [],
+                        events: [],
+                        tasks: []
+                    };
+            
+                    let i = 0;
+                    while(myUser.classes[i] || myUser.events[i] || myUser.tasks[i]){
+                        if(myUser.classes[i]){
+                            const givenDate = myUser.classes[i].class_date;
+                            if(givenDate == date){
+                                returnObject.classes.push(myUser.classes[i]);
+                            }
+                        }
+                        if(myUser.events[i]){
+                            const givenDate = myUser.events[i].date;
+                            if(givenDate == date){
+                                returnObject.events.push(myUser.events[i]);
+                            }
+                        }
+                        if(myUser.tasks[i]){
+                            const givenDate = myUser.tasks[i].due_date;
+                            if(givenDate == date){
+                                returnObject.tasks.push(myUser.tasks[i]);
+                            }
+                        }
+                        i++;
+                    }
+                    return returnObject;
                 }
-            }
-            if(myUser.events[i]){
-                const givenDate = myUser.events[i].date;
-                if(givenDate == date){
-                    returnObject.events.push(myUser.events[i]);
-                }
-            }
-            if(myUser.tasks[i]){
-                const givenDate = myUser.tasks[i].due_date;
-                if(givenDate == date){
-                    returnObject.tasks.push(myUser.tasks[i]);
-                }
-            }
-            i++;
-        }
-        return returnObject;
-    }
-    return null;
+       }catch(error){
+            return null;
+       };
+
+    
 }
 
 const get_monthly_data = async(id, date)=>{
