@@ -2,6 +2,8 @@
 
 # Class Schedule API Microservice:
 #### (THIS PROGRAM/APP WAS NOT MADE WITH ANY CODE THAT WAS GENERATED FROM A LARGE LANGUAGE MODEL, EX. CHATGPT, COPILOT).
+UML DIAGRAM:
+    ![alt text](image.png)
 
 A backend web service made with Node.js, Express, and the mongoose API to 
 query for user data from a MongoDB database of user classes, events, and tasks.
@@ -126,5 +128,3 @@ and refined user stories to capture feature requirements and define clear accept
                 400 status code, "Invalid Request" message
 
 
-    UML DIAGRAM:
-    ![alt text](image.png)
