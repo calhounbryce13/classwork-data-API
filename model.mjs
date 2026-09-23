@@ -97,47 +97,43 @@ const get_daily_data = async(id, date)=>{
     OUTPUT(S):
     */
 
-
-
-    
     try{
-            const myUser = await userModel.findById(id);
-                if(myUser){
-                    const returnObject = {
-                        classes: [],
-                        events: [],
-                        tasks: []
-                    };
-            
-                    let i = 0;
-                    while(myUser.classes[i] || myUser.events[i] || myUser.tasks[i]){
-                        if(myUser.classes[i]){
-                            const givenDate = myUser.classes[i].class_date;
-                            if(givenDate == date){
-                                returnObject.classes.push(myUser.classes[i]);
-                            }
+        const myUser = await userModel.findById(id);
+            if(myUser){
+                const returnObject = {
+                    classes: [],
+                    events: [],
+                    tasks: []
+                };
+        
+                let i = 0;
+                while(myUser.classes[i] || myUser.events[i] || myUser.tasks[i]){
+                    if(myUser.classes[i]){
+                        const givenDate = myUser.classes[i].class_date;
+                        if(givenDate == date){
+                            returnObject.classes.push(myUser.classes[i]);
                         }
-                        if(myUser.events[i]){
-                            const givenDate = myUser.events[i].date;
-                            if(givenDate == date){
-                                returnObject.events.push(myUser.events[i]);
-                            }
-                        }
-                        if(myUser.tasks[i]){
-                            const givenDate = myUser.tasks[i].due_date;
-                            if(givenDate == date){
-                                returnObject.tasks.push(myUser.tasks[i]);
-                            }
-                        }
-                        i++;
                     }
-                    return returnObject;
+                    if(myUser.events[i]){
+                        const givenDate = myUser.events[i].date;
+                        if(givenDate == date){
+                            returnObject.events.push(myUser.events[i]);
+                        }
+                    }
+                    if(myUser.tasks[i]){
+                        const givenDate = myUser.tasks[i].due_date;
+                        if(givenDate == date){
+                            returnObject.tasks.push(myUser.tasks[i]);
+                        }
+                    }
+                    i++;
                 }
-       }catch(error){
-            return null;
-       };
-
-    
+                return returnObject;
+            }
+    }catch(error){
+        console.error(error);
+        return false;
+    };
 }
 
 const get_monthly_data = async(id, date)=>{
@@ -146,39 +142,43 @@ const get_monthly_data = async(id, date)=>{
     INPUT(S):
     OUTPUT(S):
     */
-    const myUser = await userModel.findById(id);
-    if(myUser){
-        const returnObject = {
-            classes: [],
-            events: [],
-            tasks: []
-        };
 
-        let i = 0;
-        while(myUser.classes[i] || myUser.events[i] || myUser.tasks[i]){
-            if(myUser.classes[i]){
-                const givenDate = myUser.classes[i].class_date;
-                if(extract_month(givenDate) == extract_month(date)){
-                    returnObject.classes.push(myUser.classes[i]);
+    try{
+        const myUser = await userModel.findById(id);
+        if(myUser){
+            const returnObject = {
+                classes: [],
+                events: [],
+                tasks: []
+            };
+            let i = 0;
+            while(myUser.classes[i] || myUser.events[i] || myUser.tasks[i]){
+                if(myUser.classes[i]){
+                    const givenDate = myUser.classes[i].class_date;
+                    if(extract_month(givenDate) == extract_month(date)){
+                        returnObject.classes.push(myUser.classes[i]);
+                    }
                 }
-            }
-            if(myUser.events[i]){
-                const givenDate = myUser.events[i].date;
-                if(extract_month(givenDate) == extract_month(date)){
-                    returnObject.events.push(myUser.events[i]);
+                if(myUser.events[i]){
+                    const givenDate = myUser.events[i].date;
+                    if(extract_month(givenDate) == extract_month(date)){
+                        returnObject.events.push(myUser.events[i]);
+                    }
                 }
-            }
-            if(myUser.tasks[i]){
-                const givenDate = myUser.tasks[i].due_date;
-                if(extract_month(givenDate) == extract_month(date)){
-                    returnObject.tasks.push(myUser.tasks[i]);
+                if(myUser.tasks[i]){
+                    const givenDate = myUser.tasks[i].due_date;
+                    if(extract_month(givenDate) == extract_month(date)){
+                        returnObject.tasks.push(myUser.tasks[i]);
+                    }
                 }
+                i++;
             }
-            i++;
+            return returnObject;
         }
-        return returnObject;
+    }catch(error){
+        console.error(error);
+        return false;
     }
-    return null;
 }
 
 const get_weekly_data = async(id, date, week)=>{
@@ -187,39 +187,43 @@ const get_weekly_data = async(id, date, week)=>{
     INPUT(S):
     OUTPUT(S):
     */
-    const myUser = await userModel.findById(id);
-    if(myUser){
-        const returnObject = {
-            classes: [],
-            events: [],
-            tasks: []
-        };
 
-        let i = 0;
-        while(myUser.classes[i] || myUser.events[i] || myUser.tasks[i]){
-            if(myUser.classes[i]){
-                const givenDate = myUser.classes[i].class_date;
-                if(extract_month(givenDate) == extract_month(date) && (week == myUser.classes[i].week)){
-                    returnObject.classes.push(myUser.classes[i]);
+    try{
+        const myUser = await userModel.findById(id);
+        if(myUser){
+            const returnObject = {
+                classes: [],
+                events: [],
+                tasks: []
+            };
+
+            let i = 0;
+            while(myUser.classes[i] || myUser.events[i] || myUser.tasks[i]){
+                if(myUser.classes[i]){
+                    const givenDate = myUser.classes[i].class_date;
+                    if(extract_month(givenDate) == extract_month(date) && (week == myUser.classes[i].week)){
+                        returnObject.classes.push(myUser.classes[i]);
+                    }
                 }
-            }
-            if(myUser.events[i]){
-                const givenDate = myUser.events[i].date;
-                if(extract_month(givenDate) == extract_month(date) && (week == myUser.classes[i].week)){
-                    returnObject.events.push(myUser.events[i]);
+                if(myUser.events[i]){
+                    const givenDate = myUser.events[i].date;
+                    if(extract_month(givenDate) == extract_month(date) && (week == myUser.classes[i].week)){
+                        returnObject.events.push(myUser.events[i]);
+                    }
                 }
-            }
-            if(myUser.tasks[i]){
-                const givenDate = myUser.tasks[i].due_date;
-                if(extract_month(givenDate) == extract_month(date) && (week == myUser.classes[i].week)){
-                    returnObject.tasks.push(myUser.tasks[i]);
+                if(myUser.tasks[i]){
+                    const givenDate = myUser.tasks[i].due_date;
+                    if(extract_month(givenDate) == extract_month(date) && (week == myUser.classes[i].week)){
+                        returnObject.tasks.push(myUser.tasks[i]);
+                    }
                 }
+                i++;
             }
-            i++;
+            return returnObject;
         }
-        return returnObject;
+    }catch(error){
+        return false;
     }
-    return null;
 }
 
 

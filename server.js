@@ -26,30 +26,28 @@ app.post('/user-view', async(req, res)=>{
     const { type, date, user_id } = req.body;
     if(type && date && user_id){
         if(type == 'weekly' || type == 'daily' || type == 'monthly'){
-            try{
-                let data = undefined;
-                if(type === 'daily'){
-                    data = await User.get_daily_data(user_id, date);
-                }
-                else if(type == 'weekly'){
-                    if(req.body.week){
-                        data = await User.get_weekly_data(user_id, date, req.body.week);
-                    }
-                    else{
-                        res.status(400).json({"Error": "Invalid Request"});
-                        return;
-                    }
+            let data = false;
+            if(type === 'daily'){
+                data = await User.get_daily_data(user_id, date);
+            }
+            else if(type == 'weekly'){
+                if(req.body.week){
+                    data = await User.get_weekly_data(user_id, date, req.body.week);
                 }
                 else{
-                    data = await User.get_monthly_data(user_id, date);
+                    res.status(400).json({"Error": "Missing week field"});
+                    return;
                 }
+            }
+            else{
+                data = await User.get_monthly_data(user_id, date);
+            }
+            if(data){
                 res.status(200).json(data);
                 return;
-            }catch(error){
-                console.log(error);
-                res.status(500).json({"Error": "Internal server error"});
-                return;
             }
+            res.status(500).json({"Error" : "DBMS error"});
+            return;
         }
     }
     res.status(400).json({"Error": "Invalid request"});
